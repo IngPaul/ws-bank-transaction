@@ -1,4 +1,4 @@
-package com.pichincha.test;
+package com.pichincha.core;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,33 +1,71 @@
-swagger: "2.0"
+openapi: '3.0.3'
 info:
-  description: "This is a sample Swagger description for an Array server"
-  version: "1.0.0"
-  title: "Swagger Array"
+  version: 1.0.0
+  title: Simple Pet Store
+  termsOfService: https://swagger.io/
   license:
-    name: "Apache 2.0"
-    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-basePath: "/localhost:8080/"
-tags:
-  - name: "foo-controller"
-    description: "Foo controller"
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  contact:
+    name: Store Development Team
+    email: STORE-TEAM@example.com
+servers:
+  - url: http://localhost:8080/ws-bank-transaction
+    description: local
+  - url: https://dev.store.com
+    description: development
+  - url: https://stage.store.com
+    description: stage
 
 paths:
-  /foos:
+  /pet:
+    get:
+      tags:
+        - "Pet APIs"
+      summary: "Retrieve all Pets"
+      description: "Returns a collection of Pet"
+      operationId: "getPets"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pet'
+        "400":
+          description: Bad Request
     post:
       tags:
-        - "foo-controller"
-      summary: "create"
-      description: ""
-      parameters:
-        - in: body
-          description: ""
-          required: true
-          name: name
-          schema:
-            type: array
-            items:
-              type: string
-            example: ["str1", "str2", "str3"]
+        - "Pet APIs"
+      summary: "Add a Pet"
+      description: "Add a single Pet"
+      operationId: "addPet"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
       responses:
-        default:
+        "200":
           description: OK
+        "400":
+          description: Bad Request
+
+components:
+  schemas:
+    Pet:
+      type: object
+      required:
+        - petId
+      properties:
+        petId:
+          type: integer
+        name:
+          type: string
+        color:
+          type: string
+        birthDate:
+          type: string
+          format: date-time

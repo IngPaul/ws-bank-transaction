@@ -1,4 +1,4 @@
-package com.pichincha.test;
+package com.pichincha.core;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
