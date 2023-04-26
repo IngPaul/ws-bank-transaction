@@ -1,0 +1,536 @@
+{
+	"info": {
+		"_postman_id": "4fc5df07-f6c4-4a54-b6f0-f7dca62b351e",
+		"name": "API TRANSACTION BANK",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "400252",
+		"_collection_link": "https://restless-crescent-444014.postman.co/workspace/ArquitecturaHexagonal~3fedf482-d72a-41e4-8087-66036e372eca/collection/400252-4fc5df07-f6c4-4a54-b6f0-f7dca62b351e?action=share&creator=400252&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "1. Creacion de usuarios",
+			"item": [
+				{
+					"name": "1.\tCreación de Usuarios Jose Lema.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Jose Lema \",\r\n  \"gender\": \"Maculino\",\r\n  \"age\": 34,\r\n  \"identification\": \"172229512611\",\r\n  \"address\": \"Otavalo sn y principal \",\r\n  \"phone\": \"098254785\",\r\n  \"password\": \"1234\",\r\n  \"status\": \"ENABLE\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8083/ws-bank-transaction/bank-transaction/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ws-bank-transaction",
+								"bank-transaction",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.\tCreación de Usuarios Marianela Montalvo ",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Marianela Montalvo \",\r\n  \"gender\": \"Femenino\",\r\n  \"age\": 34,\r\n  \"identification\": \"172229512611\",\r\n  \"address\": \"Amazonas y  NNUU\",\r\n  \"phone\": \"097548965\",\r\n  \"password\": \"5678\",\r\n  \"status\": \"ENABLE\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8083/ws-bank-transaction/bank-transaction/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ws-bank-transaction",
+								"bank-transaction",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.\tCreación de Usuarios Jose Osorio ",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Juan Osorio\",\r\n  \"gender\": \"Maculino\",\r\n  \"age\": 34,\r\n  \"identification\": \"17222951261\",\r\n  \"address\": \"13 junio y Equinoccial\",\r\n  \"phone\": \"098874587 \",\r\n  \"password\": \"1245\",\r\n  \"status\": \"ENABLE\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8083/ws-bank-transaction/bank-transaction/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ws-bank-transaction",
+								"bank-transaction",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2. Creacion de Cuentas de Usuario.",
+			"item": [
+				{
+					"name": "496825-1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountNumber\": \"495878-1\",\r\n  \"initialBalance\": 0,\r\n  \"status\": \"ENABLE\",\r\n  \"accountTypeId\": 1,\r\n  \"customerId\": 6\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8083/ws-bank-transaction/bank-transaction/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ws-bank-transaction",
+								"bank-transaction",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "225487 -1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountNumber\": \"478758-1\",\r\n  \"initialBalance\": 2000,\r\n  \"status\": \"ENABLE\",\r\n  \"accountTypeId\": 1,\r\n  \"customerId\": 4\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8083/ws-bank-transaction/bank-transaction/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ws-bank-transaction",
+								"bank-transaction",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "225487-1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountNumber\": \"225487-1\",\r\n  \"initialBalance\": 100,\r\n  \"status\": \"ENABLE\",\r\n  \"accountTypeId\": 2,\r\n  \"customerId\": 5\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8083/ws-bank-transaction/bank-transaction/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ws-bank-transaction",
+								"bank-transaction",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "495878 -1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountNumber\": \"495878-1\",\r\n  \"initialBalance\": 0,\r\n  \"status\": \"ENABLE\",\r\n  \"accountTypeId\": 1,\r\n  \"customerId\": 6\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8083/ws-bank-transaction/bank-transaction/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ws-bank-transaction",
+								"bank-transaction",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3.\tCrear una nueva Cuenta Corriente para Jose Lema",
+			"item": [
+				{
+					"name": "585545-1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountNumber\": \"585545-1\",\r\n  \"initialBalance\": 1000,\r\n  \"status\": \"ENABLE\",\r\n  \"accountTypeId\": 2,\r\n  \"customerId\": 4\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8083/ws-bank-transaction/bank-transaction/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ws-bank-transaction",
+								"bank-transaction",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4.\tRealizar los siguientes movimientos",
+			"item": [
+				{
+					"name": "478758  2000",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"date\": \"2023-04-26T06:58:40.990Z\",\r\n  \"transactionTypeId\": 2,\r\n  \"value\": 575,\r\n  \"accountNumber\": \"478758-1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8083/ws-bank-transaction/bank-transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ws-bank-transaction",
+								"bank-transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "496825-1 540",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"date\": \"2023-04-26T06:58:40.990Z\",\r\n  \"transactionTypeId\": 2,\r\n  \"value\": 540,\r\n  \"accountNumber\": \"496825-1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8083/ws-bank-transaction/bank-transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ws-bank-transaction",
+								"bank-transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "225487-1 600",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"date\": \"2023-04-26T06:58:40.990Z\",\r\n  \"transactionTypeId\": 1,\r\n  \"value\": 600,\r\n  \"accountNumber\": \"225487-1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8083/ws-bank-transaction/bank-transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ws-bank-transaction",
+								"bank-transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "495878-1 150",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"date\": \"2023-04-26T06:58:40.990Z\",\r\n  \"transactionTypeId\": 1,\r\n  \"value\": 150,\r\n  \"accountNumber\": \"225487-1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8083/ws-bank-transaction/bank-transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ws-bank-transaction",
+								"bank-transaction"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5.\tListado de Movimiento, por fechas x usuario.",
+			"item": [
+				{
+					"name": "5.\tListado de Movimiento, por fechas x usuario.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dateStart\": \"2022-04-26T10:16:05.338Z\",\r\n  \"dateEnd\": \"2024-04-26T10:16:05.338Z\",\r\n  \"customerId\": 5\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8083/ws-bank-transaction/bank-transaction/account-status/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"ws-bank-transaction",
+								"bank-transaction",
+								"account-status",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET CUSTOMER BY ID(USUARIOS)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8083/ws-bank-transaction/bank-transaction/customers/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"ws-bank-transaction",
+						"bank-transaction",
+						"customers",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.\tCrear una nueva Cuenta Corriente para 478758-2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"accountNumber\": \"478758-2\",\r\n  \"initialBalance\": 2000,\r\n  \"status\": \"ENABLE\",\r\n  \"accountTypeId\": 1,\r\n  \"customerId\": 4\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8083/ws-bank-transaction/bank-transaction/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"ws-bank-transaction",
+						"bank-transaction",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
