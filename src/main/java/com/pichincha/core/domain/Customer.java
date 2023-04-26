@@ -1,16 +1,19 @@
 package com.pichincha.core.domain;
 
-import lombok.Data;
-import lombok.Generated;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
+import org.springframework.data.relational.core.mapping.Table;
 @Entity
-@Table(name = "customers")
+@Table(name = "customer")
 @Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Generated
 public class Customer extends Person {
 
@@ -23,6 +26,27 @@ public class Customer extends Person {
 
     private String status;
 
-    // getters y setters
+    public Long getCustomerId() {
+        return customerId;
+    }
 
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

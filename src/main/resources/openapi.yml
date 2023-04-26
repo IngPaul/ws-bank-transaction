@@ -1,30 +1,32 @@
 openapi: '3.0.3'
 info:
   version: 1.0.0
-  title: Simple Pet Store
+  title: Api of Bank Transaction Core V1
   termsOfService: https://swagger.io/
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   contact:
-    name: Store Development Team
-    email: STORE-TEAM@example.com
+    name: Paul Cuichan
+    email: pcuichan@pichincha.com
 servers:
-  - url: http://localhost:8080/ws-bank-transaction
+  - url: http://localhost:8083/ws-bank-transaction
     description: local
-  - url: https://dev.store.com
-    description: development
-  - url: https://stage.store.com
-    description: stage
-
+tags:
+  - name: Bank Transaction
+    description: Bank Transaction Controller
+  - name: Customer
+    description: Customer Controller
+  - name: Account
+    description: Account Controller
+  - name: Report
+    description: Report Controller
 paths:
-  /pet:
+  /bank-transaction/customers:
     get:
+      summary: Get all customers
       tags:
-        - "Pet APIs"
-      summary: "Retrieve all Pets"
-      description: "Returns a collection of Pet"
-      operationId: "getPets"
+        - Customer
       responses:
         "200":
           description: OK
@@ -33,39 +35,554 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Pet'
+                  $ref: '#/components/schemas/Customer'
+        "201":
+          description: No content
         "400":
           description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: No found
+        "500":
+          description: Internal Server Error
     post:
+      summary: Create new customer
       tags:
-        - "Pet APIs"
-      summary: "Add a Pet"
-      description: "Add a single Pet"
-      operationId: "addPet"
+        - Customer
       requestBody:
         content:
-          application/json:
+          "application/json":
             schema:
-              $ref: '#/components/schemas/Pet'
+              $ref: '#/components/schemas/Customer'
+      responses:
+        "201":
+          description: Customer Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: No found
+        "500":
+          description: Internal Server Error
+  /bank-transaction/customers/{idCustomer}:
+    get:
+      summary: Retrieve customer by id
+      tags:
+        - Customer
+      parameters:
+        - name: idCustomer
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        "201":
+          description: No content
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: No found
+        "500":
+          description: Internal Server Error
+    put:
+      summary: Updates customers by id
+      tags:
+        - Customer
+      parameters:
+        - name: idCustomer
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        200:
+          description: OK
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
+    delete:
+      summary: Delete customers by id
+      tags:
+        - Customer
+      parameters:
+        - name: idCustomer
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "201":
+          description: No content
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: No found
+        "500":
+          description: Internal Server Error
+  /bank-transaction/accounts:
+    get:
+      summary: Get all accounts
+      tags:
+        - Account
       responses:
         "200":
           description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+        "201":
+          description: No content
         "400":
           description: Bad Request
-
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: No found
+        "500":
+          description: Internal Server Error
+    post:
+      summary: Create new account
+      tags:
+        - Account
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        "201":
+          description: Account Created
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/Account'
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: No found
+        "500":
+          description: Internal Server Error
+  /bank-transaction/accounts/{idAccount}:
+    get:
+      summary: Retrieve account by id
+      tags:
+        - Account
+      parameters:
+        - name: idAccount
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        "201":
+          description: No content
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: No found
+        "500":
+          description: Internal Server Error
+    put:
+      summary: Updates account by id
+      tags:
+        - Account
+      parameters:
+        - name: idAccount
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        200:
+          description: OK
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
+    delete:
+      summary: Delete account by id
+      tags:
+        - Account
+      parameters:
+        - name: idAccount
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "201":
+          description: No content
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: No found
+        "500":
+          description: Internal Server Error
+  /bank-transaction:
+    get:
+      summary: Get all transactions
+      tags:
+        - Bank Transaction
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
+        "201":
+          description: No content
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: No found
+        "500":
+          description: Internal Server Error
+    post:
+      summary: Create new transaction
+      tags:
+        - Bank Transaction
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/TransactionRequest'
+      responses:
+        "201":
+          description: Transaction Created
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: No found
+        "500":
+          description: Internal Server Error
+  /bank-transaction/account-status/generate:
+    post:
+      summary: Retrieve the status account
+      tags:
+        - Report
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/PostAccountStatusRequest'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PostAccountStatusResponse'
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
+  /bank-transaction/{idTransaction}:
+    get:
+      summary: Retrieve transaction by id
+      tags:
+        - Bank Transaction
+      parameters:
+        - name: idTransaction
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
+    put:
+      summary: Updates transactions by id
+      tags:
+        - Bank Transaction
+      parameters:
+        - name: idTransaction
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/Transaction'
+      responses:
+        200:
+          description: OK
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
+    delete:
+      summary: Delete transactions by id
+      tags:
+        - Bank Transaction
+      parameters:
+        - name: idTransaction
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        204:
+          description: No Content
+        404:
+          description: Not Found
+        500:
+          description: Internal Server Error
 components:
   schemas:
-    Pet:
+    Customer:
       type: object
-      required:
-        - petId
       properties:
-        petId:
+        customerId:
           type: integer
+          format: int64
+          description: Customer ID
         name:
           type: string
-        color:
+          description: Customer name
+        gender:
           type: string
-        birthDate:
+          description: Customer gender
+        age:
+          type: integer
+          description: Customer age
+        identification:
+          type: string
+          description: Customer identification number
+        address:
+          type: string
+          description: Customer address
+        phone:
+          type: string
+          description: Customer phone number
+        password:
+          type: string
+          description: Customer password
+        status:
+          type: string
+          description: Customer status
+    AccountType:
+      type: object
+      properties:
+        accountTypeId:
+          type: integer
+          format: int64
+          description: Account type ID
+        detailType:
+          type: string
+          description: Account type description
+    Account:
+      type: object
+      properties:
+        accountId:
+          type: integer
+          format: int64
+          description: Account ID
+        accountNumber:
+          type: string
+          description: Account number
+        initialBalance:
+          type: number
+          description: Account initial balance
+        status:
+          type: string
+          description: Account status
+        accountTypeId:
+          type: integer
+          format: int64
+          description: Account type ID
+        customerId:
+          type: integer
+          format: int64
+          description: Customer ID
+    TransactionType:
+      type: object
+      properties:
+        transactionTypeId:
+          type: integer
+          format: int64
+          description: Transaction type ID
+        detailType:
+          type: string
+          description: Transaction type description
+    Transaction:
+      type: object
+      properties:
+        transactionId:
+          type: integer
+          format: int64
+          description: Transaction ID
+        date:
           type: string
           format: date-time
+          description: Transaction date
+        transactionTypeId:
+          type: integer
+          format: int64
+          description: Transaction type ID
+          enum: [1, 2, 3]
+          x-enumNames: [DEPOSITO, RETIRO, TRANSFERENCIA]
+          example: "DEPOSITO"
+        value:
+          type: number
+          description: Transaction value
+        balance:
+          type: number
+          description: Account balance after the transaction
+        accountId:
+          type: integer
+          format: int64
+          description: Account ID
+    TransactionRequest:
+      type: object
+      properties:
+        transactionId:
+          type: integer
+          format: int64
+          description: Transaction ID
+        date:
+          type: string
+          format: date-time
+          description: Transaction date
+        transactionTypeId:
+          type: integer
+          format: int64
+          description: Transaction type ID
+          enum: [1, 2, 3]
+          x-enumNames: [DEPOSITO, RETIRO, TRANSFERENCIA]
+          example: "DEPOSITO"
+        value:
+          type: number
+          description: Transaction value
+        accountNumber:
+          type: string
+          description: Account Number
+
+    PostAccountStatusResponse:
+      type: object
+      properties:
+        date:
+          type: string
+          description: Transaction date
+        customer:
+          type: string
+          example: "PAUL CUICHAN"
+        accountNumber:
+          type: string
+          description: Account Number
+        detailTransactionType:
+          type: string
+          example: "DEPOSITO"
+        initialValue:
+          type: number
+          description: Transaction value
+        value:
+          type: number
+          description: Transaction value
+        balance:
+          type: number
+          description: Account balance after the transaction
+    PostAccountStatusRequest:
+      type: object
+      properties:
+        dateStart:
+          type: string
+          format: date-time
+          description: Date start
+        dateEnd:
+          type: string
+          format: date-time
+          description: Date end
+        customerId:
+          type: integer
+          format: int64
+          description: Customer Id

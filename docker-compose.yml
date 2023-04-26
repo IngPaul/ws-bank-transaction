@@ -4,7 +4,7 @@ services:
   api:
     image: spring-boot/ws-bank-transaction
     ports:
-      - "8081:8080"
+      - "8083:8083"
 #    volumes:
 #      - ./target/ws-bank-transaction-0.0.1-SNAPSHOT.jar:/app/ws-bank-transaction.jar
     environment:
