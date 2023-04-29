@@ -27,6 +27,7 @@ paths:
       summary: Get all customers
       tags:
         - Customer
+      operationId: getCustomer
       responses:
         "200":
           description: OK
@@ -52,6 +53,7 @@ paths:
       summary: Create new customer
       tags:
         - Customer
+      operationId: postCustomer
       requestBody:
         content:
           "application/json":
@@ -79,6 +81,7 @@ paths:
       summary: Retrieve customer by id
       tags:
         - Customer
+      operationId: getCustomerById
       parameters:
         - name: idCustomer
           in: path
@@ -109,6 +112,7 @@ paths:
       summary: Updates customers by id
       tags:
         - Customer
+      operationId: putCustomer
       parameters:
         - name: idCustomer
           in: path
@@ -132,6 +136,7 @@ paths:
       summary: Delete customers by id
       tags:
         - Customer
+      operationId: deleteCustomer
       parameters:
         - name: idCustomer
           in: path
@@ -157,6 +162,7 @@ paths:
       summary: Get all accounts
       tags:
         - Account
+      operationId: getAccount
       responses:
         "200":
           description: OK
@@ -182,6 +188,7 @@ paths:
       summary: Create new account
       tags:
         - Account
+      operationId: postAccount
       requestBody:
         content:
           "application/json":
@@ -209,6 +216,7 @@ paths:
       summary: Retrieve account by id
       tags:
         - Account
+      operationId: getAccountById
       parameters:
         - name: idAccount
           in: path
@@ -239,6 +247,7 @@ paths:
       summary: Updates account by id
       tags:
         - Account
+      operationId: putAccount
       parameters:
         - name: idAccount
           in: path
@@ -262,6 +271,7 @@ paths:
       summary: Delete account by id
       tags:
         - Account
+      operationId: deleteAccount
       parameters:
         - name: idAccount
           in: path
@@ -287,6 +297,7 @@ paths:
       summary: Get all transactions
       tags:
         - Bank Transaction
+      operationId: getBankTransaction
       responses:
         "200":
           description: OK
@@ -312,6 +323,7 @@ paths:
       summary: Create new transaction
       tags:
         - Bank Transaction
+      operationId: postTransaction
       requestBody:
         content:
           "application/json":
@@ -335,6 +347,7 @@ paths:
       summary: Retrieve the status account
       tags:
         - Report
+      operationId: postAccountStatusGenerate
       requestBody:
         content:
           "application/json":
@@ -358,6 +371,7 @@ paths:
       summary: Retrieve transaction by id
       tags:
         - Bank Transaction
+      operationId: getBankTransactionById
       parameters:
         - name: idTransaction
           in: path
@@ -380,6 +394,7 @@ paths:
       summary: Updates transactions by id
       tags:
         - Bank Transaction
+      operationId: putBankTransaction
       parameters:
         - name: idTransaction
           in: path
@@ -403,6 +418,7 @@ paths:
       summary: Delete transactions by id
       tags:
         - Bank Transaction
+      operationId: deleteBankTransaction
       parameters:
         - name: idTransaction
           in: path

@@ -2,9 +2,7 @@ package com.pichincha.core.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Data;
-import lombok.Generated;
-import lombok.Getter;
+import lombok.*;
 import org.springframework.data.relational.core.mapping.Table;
 import reactor.core.publisher.Mono;
 
@@ -14,12 +12,15 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "account")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Generated
 public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "account_id")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long accountId;
 
   //  @ManyToOne
@@ -39,52 +40,4 @@ public class Account {
     private BigDecimal initialBalance;
 
     private String status;
-
-    public Long getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
-    }
-
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
-
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public Long getAccountTypeId() {
-        return accountTypeId;
-    }
-
-    public void setAccountTypeId(Long accountTypeId) {
-        this.accountTypeId = accountTypeId;
-    }
-
-    public BigDecimal getInitialBalance() {
-        return initialBalance;
-    }
-
-    public void setInitialBalance(BigDecimal initialBalance) {
-        this.initialBalance = initialBalance;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }

@@ -1,6 +1,8 @@
 package Util;
 
 import com.pichincha.core.model.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.mock.http.server.reactive.MockServerHttpRequest;
 import org.springframework.mock.web.server.MockServerWebExchange;
 import org.springframework.web.server.ServerWebExchange;
@@ -61,7 +63,7 @@ public class MockData {
         public static Transaction getTransaction() {
             Transaction transaction = new Transaction();
             transaction.setTransactionId(1L);
-            transaction.setDate(OffsetDateTime.from(LocalDateTime.now()));
+            transaction.setDate(OffsetDateTime.now());
             transaction.setTransactionTypeId(Transaction.TransactionTypeIdEnum.fromValue(1L));
             transaction.setValue(BigDecimal.valueOf(100.0));
             transaction.setBalance(BigDecimal.valueOf(1100.0));

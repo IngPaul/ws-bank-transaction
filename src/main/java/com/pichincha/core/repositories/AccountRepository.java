@@ -7,9 +7,6 @@ import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
-import java.util.Optional;
-
 @Repository
 public interface AccountRepository extends ReactiveCrudRepository<Account, Long> {
     Flux<Account> findAll();

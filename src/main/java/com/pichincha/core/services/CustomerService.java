@@ -5,13 +5,13 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface CustomerService {
-    Flux<Customer> findAllCustomers();
+    Flux<Customer> getCustomer();
 
-    Mono<Customer> findCustomerById(Long customerId);
+    Mono<Customer> getCustomerById(Long customerId);
 
-    Mono<Customer> saveCustomer(Customer customer);
+    Mono<Customer> postCustomer(Customer customer);
 
-    Mono<Customer> updateCustomer(Long customerId, Customer customerDetails);
+    Mono<Customer> putCustomer(Long customerId, Customer customerDetails);
 
     Mono<Void> deleteCustomer(Long customerId);
 }
