@@ -81,6 +81,14 @@
 			<artifactId>jackson-databind-nullable</artifactId>
 			<version>0.2.6</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.openapitools/openapi-generator-maven-plugin -->
+		<dependency>
+			<groupId>org.openapitools</groupId>
+			<artifactId>openapi-generator-maven-plugin</artifactId>
+			<version>6.5.0</version>
+			<scope>provided</scope>
+		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 		<dependency>
@@ -134,7 +142,21 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>junit</groupId>
+					<artifactId>junit</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -176,7 +198,7 @@
 						<include>com/pichincha/core/**/*</include>
 					</includes>
 					<excludes>
-						<exclude>com/pichincha/core/**/Configuration*</exclude>
+						<exclude>com/pichincha/core/**/configuration*</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
@@ -236,7 +258,7 @@
 							<inputSpec>${project.basedir}/src/main/resources/openapi.yml</inputSpec>
 							<generatorName>spring</generatorName>
 							<library>spring-boot</library>
-							<apiPackage>com.pichincha.core.api</apiPackage>
+							<apiPackage>com.pichincha.core.controllers</apiPackage>
 							<modelPackage>com.pichincha.core.model</modelPackage>
 							<supportingFilesToGenerate>false</supportingFilesToGenerate>
 							<configOptions>
@@ -245,16 +267,24 @@
 								<reactive>true</reactive>
 								<interfaceOnly>true</interfaceOnly>
 								<skipDefaultInterface>true</skipDefaultInterface>
+
 								<!-- Habilitar Lombok y MapStruct -->
 								<lombok>true</lombok>
 								<mapstruct>true</mapstruct>
-								<modelMapper>false</modelMapper>
-								<!-- Configurar MapStruct para ignorar los métodos que no se puedan mapear -->
-								<unmappedTargetPolicy>IGNORE</unmappedTargetPolicy>
 							</configOptions>
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/*Test.java</include>
+					</includes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

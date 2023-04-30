@@ -1,6 +1,5 @@
 package com.pichincha.core.controllers;
 
-import com.pichincha.core.api.CustomerApi;
 import com.pichincha.core.model.Customer;
 import com.pichincha.core.services.CustomerService;
 import lombok.RequiredArgsConstructor;

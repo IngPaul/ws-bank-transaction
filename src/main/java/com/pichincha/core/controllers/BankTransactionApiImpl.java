@@ -1,7 +1,6 @@
 package com.pichincha.core.controllers;
 
 
-import com.pichincha.core.api.BankTransactionApi;
 import com.pichincha.core.model.*;
 import com.pichincha.core.services.TransactionService;
 import lombok.RequiredArgsConstructor;

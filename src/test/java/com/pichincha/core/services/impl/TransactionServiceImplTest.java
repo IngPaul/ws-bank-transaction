@@ -1,25 +1,24 @@
-package com.pichincha.core.service.impl;
+package com.pichincha.core.services.impl;
 
 import Util.MockData;
 import com.pichincha.core.domain.Transaction;
 import com.pichincha.core.mapper.MyMapper;
-import com.pichincha.core.mapper.TransactionMapper;
 import com.pichincha.core.repositories.TransactionRepository;
-import com.pichincha.core.services.impl.TransactionServiceImpl;
 import org.junit.Before;
-import org.junit.Test;
-import static org.mockito.Mockito.*;
-
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
+import static org.mockito.Mockito.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class TransactionServiceImplTest {
 
     @Mock
@@ -34,7 +33,7 @@ public class TransactionServiceImplTest {
     }
 
     @Test
-    public void testGetBankTransactionById() {
+    public void getBankTransactionById() {
         Transaction response=MockData.getTransactionRepository();
         Mockito.when(transactionRepository.findByTransactionId(anyLong())).thenReturn(Mono.just(response));
         com.pichincha.core.model.Transaction responseMapper=MockData.getTransaction();
@@ -44,7 +43,7 @@ public class TransactionServiceImplTest {
     }
 
     @Test
-    public void testFindTransactionAll() {
+    public void findTransactionAll() {
         Transaction response=MockData.getTransactionRepository();
         Mockito.when(transactionRepository.findAll()).thenReturn(Flux.just(response));
         Mockito.when(mapper.parse(any(),any())).thenReturn(MockData.getTransaction());

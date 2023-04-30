@@ -1,6 +1,5 @@
 package com.pichincha.core.controllers;
 
-import com.pichincha.core.api.ReportApi;
 import com.pichincha.core.model.PostAccountStatusRequest;
 import com.pichincha.core.model.PostAccountStatusResponse;
 import com.pichincha.core.services.ReportService;

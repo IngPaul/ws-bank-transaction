@@ -24,7 +24,7 @@ public class AccountServiceImpl implements AccountService {
                 .map(c->accountMapper.toAccountModel(c));
     }
     @Override
-    public Mono<com.pichincha.core.model.Account> findAccountById(Long accountId) {
+    public Mono<com.pichincha.core.model.Account> getAccountById(Long accountId) {
         return accountRepository.findByAccountId(accountId)
                 .map(accountMapper::toAccountModel)
                 .onErrorResume(e->Mono.error(new BankApiException(e.getMessage())));

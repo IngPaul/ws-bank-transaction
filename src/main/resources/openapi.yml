@@ -525,8 +525,14 @@ components:
           type: integer
           format: int64
           description: Transaction type ID
-          enum: [1, 2, 3]
-          x-enumNames: [DEPOSITO, RETIRO, TRANSFERENCIA]
+          enum:
+            - 1
+            - 2
+            - 3
+          x-enum-names:
+            - "DEPOSITO"
+            - "RETIRO"
+            - "TRANSFERENCIA"
           example: "DEPOSITO"
         value:
           type: number

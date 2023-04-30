@@ -1,6 +1,5 @@
 package com.pichincha.core.controllers;
 
-import com.pichincha.core.api.AccountApi;
 import com.pichincha.core.model.Account;
 import com.pichincha.core.services.AccountService;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +29,7 @@ public class AccountApiImpl implements AccountApi {
 
     @Override
     public Mono<ResponseEntity<Account>> getAccountById(Long idAccount, ServerWebExchange exchange) {
-        return accountService.findAccountById(idAccount)
+        return accountService.getAccountById(idAccount)
                 .map(ResponseEntity::ok);
     }
 

@@ -1,31 +1,24 @@
-package com.pichincha.core.api;
+package com.pichincha.core.controllers;
 
 import Util.MockData;
-import com.pichincha.core.controllers.BankTransactionApiImpl;
-import com.pichincha.core.controllers.CustomerApiImpl;
 import com.pichincha.core.model.*;
-import com.pichincha.core.services.AccountService;
 import com.pichincha.core.services.CustomerService;
-import com.pichincha.core.services.TransactionService;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class CustomerApiImplTest {
     @Mock private CustomerService customerService;
 
@@ -33,7 +26,6 @@ public class CustomerApiImplTest {
     private CustomerApiImpl bankTransactionApi;
     @Before
     public void setup() {
-        MockitoAnnotations.initMocks(this);
     }
 
     @Test
